@@ -1,2 +1,0 @@
-# eriknordquist.com
-homepage
