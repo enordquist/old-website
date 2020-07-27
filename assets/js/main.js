@@ -1,21 +1,25 @@
 /*
-	Gravity by Pixelarity
+	Read Only by Pixelarity
 	pixelarity.com | hello@pixelarity.com
 	License: pixelarity.com/license
 */
 
 (function($) {
 
-	var	$window = $(window),
-		$body = $('body');
+	var $window = $(window),
+		$body = $('body'),
+		$header = $('#header'),
+		$titleBar = null,
+		$nav = $('#nav'),
+		$wrapper = $('#wrapper');
 
 	// Breakpoints.
 		breakpoints({
 			xlarge:   [ '1281px',  '1680px' ],
-			large:    [ '981px',   '1280px' ],
-			medium:   [ '737px',   '980px'  ],
+			large:    [ '1025px',  '1280px' ],
+			medium:   [ '737px',   '1024px' ],
 			small:    [ '481px',   '736px'  ],
-			xsmall:   [ null,      '480px'  ]
+			xsmall:   [ null,      '480px'  ],
 		});
 
 	// Play initial animations on page load.
@@ -25,127 +29,131 @@
 			}, 100);
 		});
 
-	// Touch mode.
-		if (browser.mobile)
-			$body.addClass('is-touch');
+	// Tweaks/fixes.
 
-	// Dropdowns.
-		$('#nav > ul').dropotron({
-			alignment: ($body.hasClass('landing') ? 'center' : 'right'),
-			hideDelay: 400
-		});
+		// Polyfill: Object fit.
+			if (!browser.canUse('object-fit')) {
 
-	// Off-Canvas Navigation.
+				$('.image[data-position]').each(function() {
+
+					var $this = $(this),
+						$img = $this.children('img');
+
+					// Apply img as background.
+						$this
+							.css('background-image', 'url("' + $img.attr('src') + '")')
+							.css('background-position', $this.data('position'))
+							.css('background-size', 'cover')
+							.css('background-repeat', 'no-repeat');
+
+					// Hide img.
+						$img
+							.css('opacity', '0');
+
+				});
+
+			}
+
+	// Header Panel.
+
+		// Nav.
+			var $nav_a = $nav.find('a');
+
+			$nav_a
+				.addClass('scrolly')
+				.on('click', function() {
+
+					var $this = $(this);
+
+					// External link? Bail.
+						if ($this.attr('href').charAt(0) != '#')
+							return;
+
+					// Deactivate all links.
+						$nav_a.removeClass('active');
+
+					// Activate link *and* lock it (so Scrollex doesn't try to activate other links as we're scrolling to this one's section).
+						$this
+							.addClass('active')
+							.addClass('active-locked');
+
+				})
+				.each(function() {
+
+					var	$this = $(this),
+						id = $this.attr('href'),
+						$section = $(id);
+
+					// No section for this link? Bail.
+						if ($section.length < 1)
+							return;
+
+					// Scrollex.
+						$section.scrollex({
+							mode: 'middle',
+							top: '5vh',
+							bottom: '5vh',
+							initialize: function() {
+
+								// Deactivate section.
+									$section.addClass('inactive');
+
+							},
+							enter: function() {
+
+								// Activate section.
+									$section.removeClass('inactive');
+
+								// No locked links? Deactivate all links and activate this section's one.
+									if ($nav_a.filter('.active-locked').length == 0) {
+
+										$nav_a.removeClass('active');
+										$this.addClass('active');
+
+									}
+
+								// Otherwise, if this section's link is the one that's locked, unlock it.
+									else if ($this.hasClass('active-locked'))
+										$this.removeClass('active-locked');
+
+							}
+						});
+
+				});
 
 		// Title Bar.
-			$(
+			$titleBar = $(
 				'<div id="titleBar">' +
-					'<a href="#navPanel" class="toggle"></a>' +
+					'<a href="#header" class="toggle"></a>' +
 					'<span class="title">' + $('#logo').html() + '</span>' +
 				'</div>'
 			)
 				.appendTo($body);
 
-		// Navigation Panel.
-			$(
-				'<div id="navPanel">' +
-					'<nav>' +
-						$('#nav').navList() +
-					'</nav>' +
-				'</div>'
-			)
-				.appendTo($body)
+		// Panel.
+			$header
 				.panel({
 					delay: 500,
 					hideOnClick: true,
 					hideOnSwipe: true,
 					resetScroll: true,
 					resetForms: true,
-					side: 'left',
+					side: 'right',
 					target: $body,
-					visibleClass: 'navPanel-visible'
+					visibleClass: 'header-visible'
 				});
 
-	// Carousel.
-		$('.carousel').each(function() {
+	// Scrolly.
+		$('.scrolly').scrolly({
+			speed: 1000,
+			offset: function() {
 
-			var	$this = $(this);
+				if (breakpoints.active('<=medium'))
+					return $titleBar.height();
 
-			if (!browser.mobile) {
-
-				$this.css('overflow-x', 'hidden');
-
-				// Wrapper.
-					$this.wrap('<div class="carousel-wrapper" />');
-					var $wrapper = $this.parent();
-
-				// Nav.
-					var	$navRight = $('<div class="nav right"></div>').insertAfter($this),
-						$navLeft = $('<div class="nav left"></div>').insertAfter($this),
-						intervalId;
-
-					$navLeft
-						.on('mouseenter', function() {
-							intervalId = window.setInterval(function() {
-								$this.scrollLeft( $this.scrollLeft() - 5 );
-							}, 10);
-						})
-						.on('mouseleave', function() {
-							window.clearInterval(intervalId);
-						});
-
-					$navRight
-						.on('mouseenter', function() {
-							intervalId = window.setInterval(function() {
-								$this.scrollLeft( $this.scrollLeft() + 5 );
-							}, 10);
-						})
-						.on('mouseleave', function() {
-							window.clearInterval(intervalId);
-						});
-
-				// Events.
-					$window
-						.on('resize load', function() {
-
-							if ($this.width() < $this.prop('scrollWidth'))
-								$wrapper.removeClass('no-scroll');
-							else
-								$wrapper.addClass('no-scroll');
-
-						});
+				return 0;
 
 			}
-
-			// Poptrox.
-				$this.poptrox({
-					baseZIndex: 100001,
-					useBodyOverflow: false,
-					usePopupEasyClose: false,
-					overlayColor: '#000000',
-					overlayOpacity: 0.75,
-					usePopupDefaultStyling: false,
-					popupLoaderText: '',
-					usePopupNav: true,
-					usePopupCaption: true
-				});
-
-				breakpoints.on('<=small', function() {
-
-					$this[0]._poptrox.usePopupCaption = false;
-					$this[0]._poptrox.usePopupCloser = false;
-					$this[0]._poptrox.windowMargin = 10;
-
-				});
-
-				breakpoints.on('>small', function() {
-
-					$this[0]._poptrox.usePopupCaption = true;
-					$this[0]._poptrox.usePopupCloser = true;
-					$this[0]._poptrox.windowMargin = 50;
-
-				});
-
 		});
 
 })(jQuery);
