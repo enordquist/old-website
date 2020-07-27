@@ -16,9 +16,7 @@
 		<!-- Header -->
 			<div id="header" class="alt">
 				<h1 id="logo"><a href="index.html">Erik Nordquist</a></h1>
-        <p>I am a graduate student studying computational biophysics in Jianhan Chen's </p>
-        <a href="https://people.chem.umass.edu/jchenlab/?_ga=2.91379422.591319872.1552398997-1223942051.1551801759" >lab</a>
-        <p>at the University of Massachusetts, Amherst.  <style>p{display:inline}</style> </p>
+        <p>Here is some text </p>
 				<nav id="nav">
 					<ul>
 						<li><a href="index.html">Home</a></li>
