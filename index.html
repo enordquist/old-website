@@ -25,15 +25,14 @@
 			<section id="header">
 				<header>
 					<span class="image avatar"><img src="images/avatar.jpg" alt="" /></span>
-					<h1 id="logo"><a href="#">Erik Nordquist</a></h1>
-          <p>I'm a grad student who's building predictive models of protein function by integrating experiments & biophysical simulation using statistical learning.</p>
+					<h1 id="logo"><a href="#" class="icon solid fa-home"> Erik Nordquist</a></h1>
 				</header>
 				<nav id="nav">
 					<ul>
 						<li><a href="#about" class="active">About Me</a></li>
 						<li><a href="#teaching" class="icon solid fa-school"> Teaching</a></li>
 						<li><a href="#research" class="icon solid fa-laptop"> Research</a></li>
-						<li><a href="#news" class="icon solid fa-newspaper"> News</a></li>
+						<li><a href="#news" class="icon solid fa-newspaper"> Recent News</a></li>
 						<li><a href="#publications">Publications</a></li>
 					</ul>
 				</nav>
@@ -57,26 +56,33 @@
 					<div id="main">
 
 						<!-- Banner -->
-              <div class="image main" data-position="center">
-  							<img src="images/idaho.jpg" alt="" />
-							</div>
-	
+              <section id="one">
+                <div class="image main" data-position="center">
+                  <img src="images/idaho.jpg" alt="" />
+                </div>
+                <div class="container">
+                  <header class="major">
+                    <h2>Erik Nordquist</h2>
+                    <p>I'm modeling protein function by integrating experiments & biophysical simulation with statistical learning.</p>
+                  </header>
+                </div>
+              </section> 
+
+
 						<!-- Highlights/About Me -->
 							<section id="about">
 							<div class="container">
 									<header class="major">
-										<h3>Highlights of my experiences and training<br />
-										and a link to <a href="docs/enordquist_cv.pdf">my CV</a>:</h3>
+										<h3>Highlights of my training and <a href="docs/enordquist_cv.pdf">my CV</a>:</h3>
 									</header>
 									<p></p>
                 <div class="container">
                   <ul class="feature-icons">
-                    <li class="icon solid fa-graduation-cap"><a href="https://collegeofidaho.edu">B.Sc. at The College of Idaho (2018) Chemistry + Math-Physics</a></li>
-                    <li class="icon solid fa-flask"><a href="https://umass.edu/chemistry">Ph.D. candidate at UMass Amherst Chem Dept.</a></li>
-                    <li class="icon solid fa-laptop"><a href="https://people.chem.umass.edu/jchenlab/main.html">Jianhan Chen's computational biophysics lab</li>
-                    <li class="icon solid fa-dna"><a href="https://cbi.chem.umass.edu">NIH Chemistry-Biology Interface Fellowship</a></li>
-                    <!--<li class="icon solid fa-code"><a href="https://www.olcf.ornl.gov/for-users/training/gpu-hackathons/">OpenACC GPU Hackathon @ MIT Jun 3-7 2019</a></li> -->
-                    <li class="icon solid fa-handshake"><a href="https://www.inclusivestemteaching.org/">The Inclusive STEM Teaching Project</a></li>
+                    <li class="icon solid fa-graduation-cap"><a href="https://collegeofidaho.edu">B.Sc. at The College of Idaho (2018)</a></li>
+                    <li class="icon solid fa-flask"><a href="https://umass.edu/chemistry">Ph.D. candidate at UMass Amherst</a></li>
+                    <li class="icon solid fa-code"><a href="https://people.chem.umass.edu/jchenlab/main.html">Jianhan Chen's lab</li>
+                    <li class="icon solid fa-dollar-sign"><a href="https://cbi.chem.umass.edu">NIH/UMass CBI Traineeship</a></li>
+                    <li class="icon solid fa-handshake"><a href="https://www.inclusivestemteaching.org/">Inclusive STEM Teaching Project</a></li>
                     <li class="icon solid fa-book"><a href="docs/enordquist_cv.pdf">Cirriculum Vitae</a></li>
                   </ul>
                 </div>
@@ -88,7 +94,8 @@
 							<section id="teaching">
 							<div class="container">
 									<header class="major">
-										<h3>Teaching Experience and Philosophy</h3>
+										<h3>Teaching and Outreach</h3>
+                    <p>My long-term career goal is to be a professor of chemistry. I value undergraduate education and believe in inclusive teaching and inquiry-based learning and flipped classrooms.</p>
 									</header>
                   
 									<a href="teaching.html">Read more...</a>
@@ -101,11 +108,46 @@
 						<!-- Research -->
 							<section id="research">
 							<div class="container">
-									<header class="major">
-										<h3>Research Interests</h3>
-									</header>
-                  
-									<a href="research.html">Read more...</a>
+									<header class="major"> 
+                    <h3>Research Interests</h3> 
+                    <p>I'm modeling protein function by integrating experiments & biophysical simulation with statistical learning.</p>
+                  </header>
+                    <div class="features">
+
+                    <article>
+                     <header> <h4>Hsp70 Molecular Chaperone - Substrate Affinity</h4> </header>
+                      <a href="#dnak" class="image" id="dnak"><img src="images/dnak.jpg" alt="" /></a>
+                      <div class="inner">
+                        <p>I built a model of substrate affinity by training an MD-derived interactions matrix
+                           on low-resolution binding affinity data. The resulting model recovers both the binding
+                           affinity trends, but also higher resolution information in crystal structures of bound substrates.
+									      <a href="#dnak">Read more (coming soon)</a>, or
+                        <a href="https://github.com/enordquist/paladin"> view the code on Github.</a></p>
+                      </div>
+                    </article>
+                    <article>
+                      <header> <h4>BK Channel Gating</h4> </header>
+                      <a href="#bk" class="image" id="bk"><img src="images/bk.jpg" alt="" /></a>
+                      <div class="inner">
+                        <p>I'm building a model of the BK channel to understand the effects any single mutation
+                           would have on the gating voltage and intracellular calcium concentration required for closing.
+									      <a href="#research.html#bk">Read more...</a> 
+                      </div>
+                    </article>
+                    <article>
+                      <header> <h4>Nanopore Dewetting</h4> </header>
+                      <a href="#poremetad" class="image" id="dewet"><img src="images/dewet.gif" alt="" /></a>
+                      <div class="inner">
+                        <p>In nano-scale confined environments, water exists in a delicate equilibrium between condensed and vapor
+                           phase. I am using simple model nanopores to study the effects of pore morphology and co-solvent concentration
+                           on the free energy cost of dewetting, in order to apply what I learn to real proteins like the BK channel. 
+									      <a href="#research.html#poremetad">Read more...</a> 
+                      </div>
+                    </article>
+
+
+                    </div>
+                   
                 </div>
 
                 <div>
@@ -116,9 +158,28 @@
 							<section id="news">
 							<div class="container">
 									<header class="major">
-										<h3>News</h3>
+										<h3>Recent News</h3>
 									</header>
-                  
+                  <div class="features">
+                    <article>
+                     <a href="https://www.inclusivestemteaching.org/" class="image" id="ISTP"><img src="images/ISTP.png" alt="" /></a>
+                      <div class="inner">
+                        <h4>The Inclusive STEM Teaching Project</h4>
+                        <p>This online course (through the edX platform) used embodied case study videos and self-reflection prompts to train grad students, postdocs and current faculty to approach education through personal and inclusive strategies backed by the latest educational reserach.</p>
+                        <span class="timestamp">July 2021</span>  
+ 
+                    </article>
+                    <article>
+                      <div class='image'><img src="images/umass_amherst.jpg" alt="" /></div>
+                      <div class="inner">
+                        <h4>PhD Candidacy</h4>
+                        <p>After passing my Prospectus defense in May and Original Research Proposal in December, I am now a PhD Candidate.</p>
+                        <span class="timestamp">Dec 11, 2020</span>  
+                      </div>
+                    </article>
+                  </div>
+
+
 									<a href="news.html">Read more...</a>
                 </div>
 
@@ -144,14 +205,14 @@
                         </thead>
                         <tbody>
                           <tr>
-                            <td><a href="https://doi.org/10.1002/jcc.26133">CUDA implementation of the GBMV2/SA model</a></td>
-                            <td>X. Gong, M. Chiricotto, X. Liu, E. Nordquist, M. Feig, C. L. Brooks III and J. Chen</td>
-                            <td>Jan 2020</td>
-                          </tr>
-                          <tr>
                             <td>Physics-based predictive model of DnaK-substrate binding</td>
                             <td>E. B. Nordquist, C. A. English, W. Sherman, E. M. Clerico, L. M. Gierasch, J. Chen</td>
                             <td>Submitted, May 2021</td>
+                          </tr>
+                          <tr>
+                            <td><a href="https://doi.org/10.1002/jcc.26133">CUDA implementation of the GBMV2/SA model</a></td>
+                            <td>X. Gong, M. Chiricotto, X. Liu, E. Nordquist, M. Feig, C. L. Brooks III and J. Chen</td>
+                            <td>Jan 2020</td>
                           </tr>
                         </tfoot>
                       </table>
