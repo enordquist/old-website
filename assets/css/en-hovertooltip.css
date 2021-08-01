@@ -1,0 +1,35 @@
+a[data-tool-tip]{
+    position: relative;
+    text-decoration: none;
+    color: rgba(255,255,255,1.00);
+}
+
+a[data-tool-tip]::after{
+    content: attr(data-tool-tip);
+    display: block;
+    position: absolute;
+    background-color: dimgrey;
+    color: white;
+    border-radius: 3pt;
+    padding: 3pt 3pt;
+    font-size: 16pt;
+    top: 100%;
+    left: 50%;
+    white-space: nowrap;
+    transform: scale(0);
+    transition: 
+    transform ease-out 150ms,
+    bottom ease-out 150ms;
+}
+
+a[data-tool-tip]:hover::after{
+    transform: scale(1);
+    background-color: dimgrey;
+    padding:3pt 3pt;
+    color: white;
+    border-radius: 3pt;
+    font-size: 16pt;
+    top: 100%;
+    left: 50%;
+
+}
