@@ -1,0 +1,42 @@
+@font-face {
+  font-family: 'icomoon';
+  src:  url('../webfonts/icomoon.eot?noas0e');
+  src:  url('../webfonts/icomoon.eot?noas0e#iefix') format('embedded-opentype'),
+    url('../webfonts/icomoon.ttf?noas0e') format('truetype'),
+    url('../webfonts/icomoon.woff?noas0e') format('woff'),
+    url('../webfonts/icomoon.svg?noas0e#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-black-compchem:before {
+  content: "\e903";
+}
+.icon-white-compchem:before {
+  content: "\e903";
+  color: #fff;
+}
+.icon-UMcrimson-compchem:before {
+  content: "\e903";
+  color: #891d1c;
+}
+.icon-blue-compchem:before {
+  content: "\e903";
+  color: #64a2d0;
+}
