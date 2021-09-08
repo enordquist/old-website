@@ -121,28 +121,33 @@
                         <p>I built a model of substrate affinity by training an MD-derived interactions matrix
                            on low-resolution binding affinity data. The resulting model recovers both the binding
                            affinity trends, but also higher resolution information in crystal structures of bound substrates.
-									      <a href="#dnak">Read more (coming soon)</a>, or
+									      <a href="#dnak">Read more (coming very soon)</a>, or
                         <a href="https://github.com/enordquist/paladin"> view the code on Github.</a></p>
                       </div>
                     </article>
                     <article>
-                      <header> <h4>BK Channel Gating</h4> </header>
-                      <a href="#bk" class="image" id="bk"><img src="images/bk.jpg" alt="" /></a>
+                      <header> <h4>Nanopore Dewetting</h4> </header>
+                      <a href="#poremetad" class="video" id="dewet"><iframe width="560" height="315" src="https://www.youtube.com/embed/q4q23Oauk8g" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></a>
                       <div class="inner">
-                        <p>I'm building a model of the BK channel to understand the effects any single mutation
-                           would have on the gating voltage and intracellular calcium concentration required for closing.
-									      <!--<a href="#bk">Read more...</a> -->
+                        <p>In nano-scale confined environments, water exists in a delicate equilibrium between condensed and vapor phase. I am using simple model nanopores to study the effects of pore morphology and co-solvent concentration on the free energy cost of dewetting, in order to apply what I learn to real proteins like the BK channel. This work is being done with Sam Schultz, currently an undergrad at UMass.
+									      <!--<a href="#poremetad">Read more...</a> -->
                         </p>
                       </div>
                     </article>
                     <article>
-                      <header> <h4>Nanopore Dewetting</h4> </header>
-                      <a href="#poremetad" class="image" id="dewet"><img src="images/dewet.gif" alt="" /></a>
+                      <header> <h4>BK Channel Gating</h4> </header>
+                      <a href='#bk' class="video" id='bk'><iframe width="560" height="315" src="https://www.youtube.com/embed/ar8-HyAzU2M" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></a>
                       <div class="inner">
-                        <p>In nano-scale confined environments, water exists in a delicate equilibrium between condensed and vapor
-                           phase. I am using simple model nanopores to study the effects of pore morphology and co-solvent concentration
-                           on the free energy cost of dewetting, in order to apply what I learn to real proteins like the BK channel. 
-									      <!--<a href="#poremetad">Read more...</a> -->
+                        <p>I'm building a model of the BK channel to understand the effects mutations
+                           have on the gating voltage and intracellular calcium concentration required for closing.
+                           I can use metadynamics to drive otherwise slow dewetting transitions
+                           in order to study the effects a mutation or even a drug will have on pore dewetting and channel opening.
+                           Sometimes, we even see an ion permeation, as in the video...
+                           To fully cover the mutational space, even metadynamics is to expensive, so I
+                           will employ basis set MD and statistical learning techniques to fit known functional data and make
+                           predictions where the data is sparse.
+
+									      <!--<a href="#bk">Read more...</a> -->
                         </p>
                       </div>
                     </article>
@@ -209,7 +214,7 @@
                           <tr>
                             <td>Physics-based predictive model of DnaK-substrate binding</td>
                             <td>E. B. Nordquist, C. A. English, W. Sherman, E. M. Clerico, L. M. Gierasch, J. Chen</td>
-                            <td>Submitted, May 2021</td>
+                            <td>Under Revision, PLOS Comp Bio</td>
                           </tr>
                           <tr>
                             <td><a href="https://doi.org/10.1002/jcc.26133">CUDA implementation of the GBMV2/SA model</a></td>
